@@ -28,3 +28,87 @@
 2019-08-10 16:03:57.408  INFO 16874 --- [https-jsse-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2019-08-10 16:03:57.412  INFO 16874 --- [https-jsse-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
 2019-08-10 16:06:41.219  INFO 16874 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-08-13 13:39:10.533  INFO 12072 --- [main] c.m.l.LocallectionCliWebApplication      : Starting LocallectionCliWebApplication on Choi with PID 12072 (C:\Users\choln\Desktop\locallection_cli_web\build\classes\java\main started by Choi in C:\Users\choln\Desktop\locallection_cli_web)
+2019-08-13 13:39:10.535  INFO 12072 --- [main] c.m.l.LocallectionCliWebApplication      : No active profile set, falling back to default profiles: default
+2019-08-13 13:39:11.722  INFO 12072 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (https)
+2019-08-13 13:39:11.743  INFO 12072 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-13 13:39:11.744  INFO 12072 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2019-08-13 13:39:11.850  INFO 12072 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-13 13:39:11.851  INFO 12072 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1272 ms
+2019-08-13 13:39:12.014  INFO 12072 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-13 13:39:12.067  INFO 12072 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2019-08-13 13:39:12.768 ERROR 12072 --- [main] org.apache.catalina.util.LifecycleBase   : Failed to start component [Connector[HTTP/1.1-8082]]
+
+org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1008) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:227) [tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:263) [spring-boot-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:195) [spring-boot-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.startWebServer(ServletWebServerApplicationContext.java:297) [spring-boot-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.finishRefresh(ServletWebServerApplicationContext.java:163) [spring-boot-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:552) [spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) [spring-boot-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:743) [spring-boot-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:390) [spring-boot-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) [spring-boot-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1214) [spring-boot-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1203) [spring-boot-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at com.mrporter.locallection_cli_web.LocallectionCliWebApplication.main(LocallectionCliWebApplication.java:17) [main/:na]
+Caused by: java.lang.IllegalArgumentException: C:\Users\nakzzi\Downloads\keystore (지정된 경로를 찾을 수 없습니다)
+	at org.apache.tomcat.util.net.AbstractJsseEndpoint.createSSLContext(AbstractJsseEndpoint.java:99) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.tomcat.util.net.AbstractJsseEndpoint.initialiseSsl(AbstractJsseEndpoint.java:71) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:218) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1124) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1210) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:585) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1005) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	... 14 common frames omitted
+Caused by: java.io.FileNotFoundException: C:\Users\nakzzi\Downloads\keystore (지정된 경로를 찾을 수 없습니다)
+	at java.io.FileInputStream.open0(Native Method) ~[na:1.8.0_121]
+	at java.io.FileInputStream.open(FileInputStream.java:195) ~[na:1.8.0_121]
+	at java.io.FileInputStream.<init>(FileInputStream.java:138) ~[na:1.8.0_121]
+	at java.io.FileInputStream.<init>(FileInputStream.java:93) ~[na:1.8.0_121]
+	at sun.net.www.protocol.file.FileURLConnection.connect(FileURLConnection.java:90) ~[na:1.8.0_121]
+	at sun.net.www.protocol.file.FileURLConnection.getInputStream(FileURLConnection.java:188) ~[na:1.8.0_121]
+	at org.apache.catalina.startup.CatalinaBaseConfigurationSource.getResource(CatalinaBaseConfigurationSource.java:107) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.tomcat.util.net.SSLUtilBase.getStore(SSLUtilBase.java:198) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.tomcat.util.net.SSLHostConfigCertificate.getCertificateKeystore(SSLHostConfigCertificate.java:206) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.tomcat.util.net.SSLUtilBase.getKeyManagers(SSLUtilBase.java:280) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.tomcat.util.net.SSLUtilBase.createSSLContext(SSLUtilBase.java:247) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.tomcat.util.net.AbstractJsseEndpoint.createSSLContext(AbstractJsseEndpoint.java:97) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	... 20 common frames omitted
+
+2019-08-13 13:39:12.773  INFO 12072 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2019-08-13 13:39:12.781  INFO 12072 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-08-13 13:39:12.786 ERROR 12072 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8082 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8082, or configure this application to listen on another port.
+
+2019-08-13 13:39:12.788  INFO 12072 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-08-13 13:41:13.792  INFO 4932 --- [main] c.m.l.LocallectionCliWebApplication      : Starting LocallectionCliWebApplication on Choi with PID 4932 (C:\Users\choln\Desktop\locallection_cli_web\build\classes\java\main started by Choi in C:\Users\choln\Desktop\locallection_cli_web)
+2019-08-13 13:41:13.795  INFO 4932 --- [main] c.m.l.LocallectionCliWebApplication      : No active profile set, falling back to default profiles: default
+2019-08-13 13:41:14.671  INFO 4932 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (https)
+2019-08-13 13:41:14.691  INFO 4932 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-13 13:41:14.692  INFO 4932 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2019-08-13 13:41:14.801  INFO 4932 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-13 13:41:14.801  INFO 4932 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 960 ms
+2019-08-13 13:41:14.981  INFO 4932 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-13 13:41:15.038  INFO 4932 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2019-08-13 13:41:15.637  INFO 4932 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (https) with context path ''
+2019-08-13 13:41:15.639  INFO 4932 --- [main] c.m.l.LocallectionCliWebApplication      : Started LocallectionCliWebApplication in 2.253 seconds (JVM running for 3.484)
+2019-08-13 13:43:43.965  INFO 4932 --- [https-jsse-nio-8082-exec-9] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-08-13 13:43:43.965  INFO 4932 --- [https-jsse-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-08-13 13:43:43.970  INFO 4932 --- [https-jsse-nio-8082-exec-9] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
