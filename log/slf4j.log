@@ -1,0 +1,30 @@
+2019-08-10 15:50:30.968  INFO 16775 --- [main] c.m.l.LocallectionCliWebApplication      : Starting LocallectionCliWebApplication on choiui-MacBookPro.local with PID 16775 (/Users/nakzzi/IdeaProjects/locallection_cli_web/build/classes/java/main started by nakzzi in /Users/nakzzi/IdeaProjects/locallection_cli_web)
+2019-08-10 15:50:30.970  INFO 16775 --- [main] c.m.l.LocallectionCliWebApplication      : No active profile set, falling back to default profiles: default
+2019-08-10 15:50:31.494  INFO 16775 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (https)
+2019-08-10 15:50:31.516  INFO 16775 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-10 15:50:31.516  INFO 16775 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2019-08-10 15:50:31.585  INFO 16775 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-10 15:50:31.586  INFO 16775 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 599 ms
+2019-08-10 15:50:31.710  INFO 16775 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-10 15:50:31.743  INFO 16775 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2019-08-10 15:50:31.938  INFO 16775 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (https) with context path ''
+2019-08-10 15:50:31.942  INFO 16775 --- [main] c.m.l.LocallectionCliWebApplication      : Started LocallectionCliWebApplication in 1.191 seconds (JVM running for 6.737)
+2019-08-10 15:51:26.727  INFO 16775 --- [https-jsse-nio-8082-exec-8] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-08-10 15:51:26.728  INFO 16775 --- [https-jsse-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-08-10 15:51:26.732  INFO 16775 --- [https-jsse-nio-8082-exec-8] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2019-08-10 16:03:39.541  INFO 16775 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-08-10 16:03:46.392  INFO 16874 --- [main] c.m.l.LocallectionCliWebApplication      : Starting LocallectionCliWebApplication on choiui-MacBookPro.local with PID 16874 (/Users/nakzzi/IdeaProjects/locallection_cli_web/build/classes/java/main started by nakzzi in /Users/nakzzi/IdeaProjects/locallection_cli_web)
+2019-08-10 16:03:46.393  INFO 16874 --- [main] c.m.l.LocallectionCliWebApplication      : No active profile set, falling back to default profiles: default
+2019-08-10 16:03:46.852  INFO 16874 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (https)
+2019-08-10 16:03:46.871  INFO 16874 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-08-10 16:03:46.872  INFO 16874 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2019-08-10 16:03:46.931  INFO 16874 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-08-10 16:03:46.931  INFO 16874 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 521 ms
+2019-08-10 16:03:47.045  INFO 16874 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-08-10 16:03:47.075  INFO 16874 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2019-08-10 16:03:47.266  INFO 16874 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (https) with context path ''
+2019-08-10 16:03:47.269  INFO 16874 --- [main] c.m.l.LocallectionCliWebApplication      : Started LocallectionCliWebApplication in 1.065 seconds (JVM running for 6.512)
+2019-08-10 16:03:57.407  INFO 16874 --- [https-jsse-nio-8082-exec-6] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-08-10 16:03:57.408  INFO 16874 --- [https-jsse-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-08-10 16:03:57.412  INFO 16874 --- [https-jsse-nio-8082-exec-6] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2019-08-10 16:06:41.219  INFO 16874 --- [Thread-2] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
