@@ -31,4 +31,4 @@ out/
 .vscode/
 
 # Project exclude paths
-/src/main/resources/static/
+# /src/main/resources/static/
