@@ -1,14 +1,32 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <div id="header">
+      <main-header/>
+    </div>
+    <div id="contents">
+      <main-contents/>
+      <img src="./assets/logo.png">
+      <router-view/>
+    </div>
+    <div id="footer">
+      <main-footer/>
+    </div>
   </div>
 </template>
 
 <script>
 
+import MainHeader from '@/components/common/MainHeader'
+import MainFooter from '@/components/common/MainFooter'
+import MainContents from '@/components/common/MainContents'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    'main-header': MainHeader,
+    'main-footer': MainFooter,
+    'main-contents': MainContents
+  }
 }
 </script>
 
