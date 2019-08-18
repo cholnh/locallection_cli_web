@@ -40,6 +40,7 @@ export default {
         this.vm_isLoading = false
         this.vm_formText = JSON.stringify(data)
       } catch (err) {
+        this.vm_formText = err
         console.error(err)
       }
     }
