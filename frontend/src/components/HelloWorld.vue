@@ -42,6 +42,7 @@ export default {
       } catch (err) {
         this.vm_formText = err
         console.error(err)
+        this.vm_formText = err
       }
     }
   }
