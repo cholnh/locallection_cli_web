@@ -15,7 +15,6 @@
 </template>
 
 <script>
-
 import MainHeader from '@/components/common/MainHeader'
 import MainFooter from '@/components/common/MainFooter'
 import MainContents from '@/components/common/MainContents'
