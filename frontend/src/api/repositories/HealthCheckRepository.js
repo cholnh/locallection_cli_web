@@ -2,8 +2,7 @@ import Repository from '@/api/Repository'
 
 const resource = '/application/healthCheck'
 export default {
-  get () {
-    let headers = {'Authorization': 'Bearer token!'}
+  get (headers) {
     return Repository(headers).get(`${resource}`)
   }
 }

@@ -1,14 +1,82 @@
 <template>
   <div>
     <h1>{{ vm_title }}</h1>
+
+    <b-card-group>
+      <b-card header="guest token payload">
+        <b-card-text>
+          Access Token : {{ getAccessToken }}
+        </b-card-text>
+        <b-button @click="OnGuestToken"
+                  variant="success">전송</b-button>
+      </b-card>
+
+      <b-card header="user token payload">
+        <b-card-text>
+          Access Token : {{ getAccessToken }} <br>
+          Refresh Token : {{ getRefreshToken }}
+        </b-card-text>
+        <b-textarea v-model="vm_token_payload_username" class="mb-3"
+                    placeholder="username"
+                    :rows="1"
+                    :max-rows="1">
+        </b-textarea>
+        <b-textarea v-model="vm_token_payload_password" class="mb-3"
+                    placeholder="password"
+                    :rows="1"
+                    :max-rows="1">
+        </b-textarea>
+        <b-button @click="OnUserToken({
+                            username: vm_token_payload_username,
+                            password: vm_token_payload_password
+                          })"
+                  variant="success">전송</b-button>
+      </b-card>
+
+      <b-card header="refresh token payload">
+        <b-card-text>
+          Access Token : {{ getAccessToken }} <br>
+          Refresh Token : {{ getRefreshToken }}
+        </b-card-text>
+        <b-textarea v-model="vm_token_payload_refresh_token" class="mb-3"
+                    placeholder="token refresh"
+                    :rows="3"
+                    :max-rows="6">
+        </b-textarea>
+        <b-button @click="OnRefreshToken({
+                            token: vm_token_payload_refresh_token
+                          })"
+                  variant="success">전송</b-button>
+      </b-card>
+
+    </b-card-group>
+
     <b-card-group deck class="m-3">
-      <b-card header="GET">
+
+      <b-card header="서버 상태 체크">
         <b-form-textarea v-model="vm_formText" class="mb-3"
-                         placeholder="이곳에 결과 값이 나옴"
+                         placeholder="서버 상태 체크"
                          :rows="3"
                          :max-rows="6">
         </b-form-textarea>
-        <b-button @click="healthCheckOn"
+        <b-button @click="OnHealthCheck"
+                  variant="success">전송</b-button>
+      </b-card>
+
+      <b-card header="vuex counter">
+        <b-card-text> {{ getCounter }} </b-card-text>
+        <button @click="OnAddCounter">+</button>
+        <button @click="OnSubCounter">-</button>
+      </b-card>
+
+      <b-card header="vuex payload">
+        <b-card-text> {{ getPayload }} </b-card-text>
+        <b-textarea v-model="vm_vuex_payload" class="mb-3"
+                    placeholder="vuex payload"
+                    :rows="3"
+                    :max-rows="6">
+        </b-textarea>
+        <b-button @click="OnPayload(vm_vuex_payload)"
                   variant="success">전송</b-button>
       </b-card>
     </b-card-group>
@@ -19,6 +87,7 @@
 
 <script>
 
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 import { RepositoryFactory } from '@/api/RepositoryFactory'
 const HealthCheckRepository = RepositoryFactory.get('HealthCheck')
 
@@ -29,19 +98,37 @@ export default {
     return {
       vm_title: 'SERVER STATUS TEST PAGE',
       vm_isLoading: false,
-      vm_formText: ''
+      vm_formText: '',
+      vm_oauth2guest: '',
+      vm_vuex_payload: '',
+      vm_token_payload_username: '',
+      vm_token_payload_password: '',
+      vm_token_payload_refresh_token: ''
     }
   },
+  computed: {
+    ...mapGetters([
+      'getCounter', 'getPayload', 'getAccessToken', 'getRefreshToken'
+    ])
+  },
   methods: {
-    async healthCheckOn () {
+    ...mapMutations({
+      OnAddCounter: 'add',
+      OnSubCounter: 'sub',
+      OnPayload: 'setPayload'
+    }),
+    ...mapActions({
+      OnGuestToken: 'getOauth2guestToken',
+      OnUserToken: 'getOauth2userToken',
+      OnRefreshToken: 'getOauth2refreshToken'
+    }),
+    async OnHealthCheck () {
       try {
         this.vm_isLoading = true
-        const { data } = await HealthCheckRepository.get()
+        const {data} = await HealthCheckRepository.get()
         this.vm_isLoading = false
         this.vm_formText = JSON.stringify(data)
       } catch (err) {
-        this.vm_formText = err
-        console.error(err)
         this.vm_formText = err
       }
     }

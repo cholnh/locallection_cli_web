@@ -4,6 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.PostConstruct;
 import java.util.Locale;
@@ -28,5 +31,11 @@ public class LocallectionCliWebApplication implements CommandLineRunner {
     @Override
     /* 구동 시점에 실행되는 코드 */
     public void run(String... args) throws Exception {
+    }
+
+    @Bean
+    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+        // Do any additional configuration here
+        return builder.build();
     }
 }
