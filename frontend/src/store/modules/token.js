@@ -1,55 +1,87 @@
 import axios from 'axios'
 
 export const tokenModule = {
-  state: {
-    accessToken: null,
-    refreshToken: null
-  },
   getters: {
     getAccessToken: function (state) {
-      return state.accessToken
+      return sessionStorage.accessToken
     },
     getRefreshToken: function (state) {
-      return state.refreshToken
+      return sessionStorage.refreshToken
     }
   },
   mutations: {
     setAccessToken (state, payload) {
-      state.accessToken = payload
+      sessionStorage.accessToken = payload
     },
     setRefreshToken (state, payload) {
-      state.refreshToken = payload
+      sessionStorage.refreshToken = payload
+    },
+    clearAccessToken (state) {
+      sessionStorage.removeItem('accessToken')
+    },
+    clearRefreshToken (state) {
+      sessionStorage.removeItem('refreshToken')
     }
   },
   actions: {
     async getOauth2guestToken (context) {
       try {
         const {data} = await axios.post('https://localhost:8084/oauth/token/guest')
-        context.commit('setAccessToken', data.access_token)
+        if ('access_token' in data) {
+          let accessToken = `Bearer ${data.access_token}`
+          context.commit('setAccessToken', accessToken)
+          console.log('[Oauth2] Issue guest token')
+          return true
+        }
       } catch (err) {
-        context.commit('setAccessToken', err)
-        context.commit('setRefreshToken', '')
+        console.error(err)
       }
+      return false
     },
     async getOauth2userToken (context, payload) {
       try {
         const {data} = await axios.post('https://localhost:8084/oauth/token/user', payload)
-        context.commit('setAccessToken', data.access_token)
-        context.commit('setRefreshToken', data.refresh_token)
+        if ('access_token' in data) {
+          let accessToken = `Bearer ${data.access_token}`
+          let refreshToken = data.refresh_token
+          context.commit('setAccessToken', accessToken)
+          context.commit('setRefreshToken', refreshToken)
+          console.log('[Oauth2] Issue user token (using password)')
+          return true
+        }
       } catch (err) {
-        context.commit('setAccessToken', err)
-        context.commit('setRefreshToken', '')
+        console.error(err)
       }
+      return false
     },
-    async getOauth2refreshToken (context, payload) {
+    async getOauth2refreshToken (context) {
       try {
-        const {data} = await axios.post('https://localhost:8084/oauth/token/refresh', payload)
-        context.commit('setAccessToken', data.access_token)
-        context.commit('setRefreshToken', data.refresh_token)
+        let refreshToken = this.getRefreshToken
+        if (refreshToken && refreshToken.length !== 0) {
+          const response = await axios.post('https://localhost:8084/oauth/token/refresh', refreshToken)
+          switch (response.status) {
+            case 200:
+              let {data} = response
+              if ('access_token' in data) {
+                let accessToken = `Bearer ${data.access_token}`
+                context.commit('setAccessToken', accessToken)
+                console.log('[Oauth2] Issue user token (using refresh token)')
+                return true
+              }
+              break
+            case 401:
+              context.commit('clearAccessToken')
+              context.commit('clearRefreshToken')
+              console.log('[Oauth2] refresh token has expired')
+              break
+            default:
+              break
+          }
+        }
       } catch (err) {
-        context.commit('setAccessToken', err)
-        context.commit('setRefreshToken', '')
+        console.error(err)
       }
+      return false
     }
   }
 }

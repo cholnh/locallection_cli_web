@@ -1,10 +1,9 @@
 # LOCALLECTION WEB FRONTEND APPLICATION PROPERTY
-
 server:
   port: 8084
 
   servlet:
-    # context-path: /
+    #context-path: /
     session:
       tracking-modes: cookie
 

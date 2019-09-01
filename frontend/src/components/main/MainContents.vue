@@ -1,14 +1,12 @@
 <template>
   <div id="main-contents">
-    <div id="ground">
-      <main-ground-floor/>
-    </div>
-    <div id="first">
-      <main-first-floor/>
-    </div>
-    <div id="second">
-      <main-second-floor/>
-    </div>
+    <hr>
+    This is Main start
+    <MainGroundFloor/>
+    <MainFirstFloor/>
+    <MainSecondFloor/>
+    This is Main end
+    <hr>
   </div>
 </template>
 
@@ -19,9 +17,7 @@ import MainSecondFloor from '@/components/main/second/MainSecondFloor'
 export default {
   name: 'main-contents',
   components: {
-    'main-ground-floor': MainGroundFloor,
-    'main-first-floor': MainFirstFloor,
-    'main-second-floor': MainSecondFloor
+    MainGroundFloor, MainFirstFloor, MainSecondFloor
   }
 }
 </script>

@@ -3,6 +3,14 @@
     <h1>{{ vm_title }}</h1>
 
     <b-card-group>
+      <b-card header="get data (guest)">
+        <b-card-text>
+          data : {{ dataForGuest }}
+        </b-card-text>
+        <b-button @click="OnFetchDataGuestToken"
+                  variant="success">전송</b-button>
+      </b-card>
+
       <b-card header="guest token payload">
         <b-card-text>
           Access Token : {{ getAccessToken }}
@@ -26,10 +34,11 @@
                     :rows="1"
                     :max-rows="1">
         </b-textarea>
-        <b-button @click="OnUserToken({
-                            username: vm_token_payload_username,
-                            password: vm_token_payload_password
-                          })"
+        <b-button @click="OnUserToken(
+                            {
+                              username: vm_token_payload_username,
+                              password: vm_token_payload_password
+                            })"
                   variant="success">전송</b-button>
       </b-card>
 
@@ -90,6 +99,7 @@
 import { mapGetters, mapMutations, mapActions } from 'vuex'
 import { RepositoryFactory } from '@/api/RepositoryFactory'
 const HealthCheckRepository = RepositoryFactory.get('HealthCheck')
+const TestDataRepository = RepositoryFactory.get('TestData')
 
 export default {
   name: 'HelloWorld',
@@ -103,7 +113,8 @@ export default {
       vm_vuex_payload: '',
       vm_token_payload_username: '',
       vm_token_payload_password: '',
-      vm_token_payload_refresh_token: ''
+      vm_token_payload_refresh_token: '',
+      dataForGuest: ''
     }
   },
   computed: {
@@ -130,6 +141,14 @@ export default {
         this.vm_formText = JSON.stringify(data)
       } catch (err) {
         this.vm_formText = err
+      }
+    },
+    async OnFetchDataGuestToken () {
+      try {
+        const {data} = await TestDataRepository.get()
+        this.dataForGuest = data
+      } catch (err) {
+        this.dataForGuest = err
       }
     }
   }

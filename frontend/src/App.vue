@@ -3,11 +3,7 @@
     <div id="header">
       <main-header/>
     </div>
-    <div id="contents">
-      <main-contents/>
-      <img src="./assets/logo.png">
-      <router-view/>
-    </div>
+    <router-view/>
     <div id="footer">
       <main-footer/>
     </div>
@@ -17,14 +13,21 @@
 <script>
 import MainHeader from '@/components/common/MainHeader'
 import MainFooter from '@/components/common/MainFooter'
-import MainContents from '@/components/common/MainContents'
 
 export default {
   name: 'App',
   components: {
     'main-header': MainHeader,
-    'main-footer': MainFooter,
-    'main-contents': MainContents
+    'main-footer': MainFooter
+  },
+  created () {
+    window.addEventListener('beforeunload', this.OnPageDestroyed)
+  },
+  methods: {
+    OnPageDestroyed: function handler (event) {
+      alert('def')
+      localStorage.removeItem('accessToken')
+    }
   }
 }
 </script>
