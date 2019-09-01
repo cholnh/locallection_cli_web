@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="login">
     <h2>Login</h2>
     <form @submit.prevent="OnSubmit(username, password)">
       <input type="text" v-model="username" placeholder="Username">
@@ -44,5 +44,7 @@ export default {
 </script>
 
 <style scoped>
+  #login {
 
+  }
 </style>
