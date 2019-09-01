@@ -1,11 +1,8 @@
 <template>
   <div id="main-contents">
-    <hr>
-    This is Main start
     <MainGroundFloor/>
     <MainFirstFloor/>
     <MainSecondFloor/>
-    This is Main end
     <hr>
   </div>
 </template>
@@ -23,5 +20,7 @@ export default {
 </script>
 
 <style scoped>
-
+  #main-contents {
+    padding-top: 100px;
+  }
 </style>

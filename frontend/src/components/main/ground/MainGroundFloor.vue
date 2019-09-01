@@ -1,7 +1,13 @@
 <template>
   <div id="main-ground-floor">
-    <h2>This is ground floor</h2>
-    <SearchBar/>
+    <b-container class="bv-example-row">
+      <b-row>
+        <b-col></b-col>
+        <b-col><SearchBar/></b-col>
+        <b-col></b-col>
+      </b-row>
+    </b-container>
+
     <keep-alive>
       <component v-bind:is="getComponent"/>
     </keep-alive>
@@ -28,5 +34,7 @@ export default {
 </script>
 
 <style scoped>
-  #main-ground-floor {background: beige}
+  #main-ground-floor {
+
+  }
 </style>

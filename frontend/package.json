@@ -23,9 +23,12 @@
     "vue-router": "^3.0.1",
     "vue-session": "^1.0.0",
     "vue-sessionstorage": "^1.0.0",
+    "vue-unicons": "^1.4.1",
+    "vuetify": "^2.0.11",
     "vuex": "^3.1.1"
   },
   "devDependencies": {
+    "@mdi/font": "^4.2.95",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^8.2.1",
