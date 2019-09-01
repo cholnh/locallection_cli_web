@@ -1,10 +1,12 @@
 <template>
-  <h2>ground floor</h2>
+  <div id="search-local">
+    This is search local
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'MainGroundFloor'
+  name: 'SearchLocal'
 }
 </script>
 

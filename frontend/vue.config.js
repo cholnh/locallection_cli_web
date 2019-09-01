@@ -1,6 +1,6 @@
 module.exports = {
   devServer: {
-    proxy: {
+    proxy: [{
       '/api': {
         target: 'https://localshot:9530/api/v1',
         changeOrigin: true,
@@ -8,6 +8,7 @@ module.exports = {
           '^/api': ''
         }
       }
-    }
+    },
+    "https://localhost"]
   }
 }

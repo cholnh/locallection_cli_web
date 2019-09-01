@@ -1,15 +1,14 @@
 # LOCALLECTION WEB FRONTEND APPLICATION PROPERTY
-
 server:
-  port: 8082
+  port: 8084
 
   servlet:
-    # context-path: /
+    #context-path: /
     session:
       tracking-modes: cookie
 
   ssl:
-    key-store: c:/ssl/keystore
+    key-store: /Users/nakzzi/Downloads/keystore
     key-store-password: eun*zzi92!
     key-password: eun*zzi92!
     key-alias: alias
