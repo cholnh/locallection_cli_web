@@ -1,5 +1,7 @@
 <template>
-  <h2>first floor</h2>
+  <div id="main-first-floor">
+
+  </div>
 </template>
 
 <script>
@@ -9,5 +11,8 @@ export default {
 </script>
 
 <style scoped>
-
+  #main-first-floor {
+    background: azure;
+    height: 700px;
+  }
 </style>

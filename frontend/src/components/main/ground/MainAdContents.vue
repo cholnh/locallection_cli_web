@@ -1,7 +1,5 @@
 <template>
   <div id="main-ad-contents">
-    This is ad contents <br>
-    <!-- <img src="../../../assets/logo.png"> -->
   </div>
 </template>
 
@@ -12,5 +10,8 @@ export default {
 </script>
 
 <style scoped>
-
+  #main-ad-contents {
+    height: 550px;
+    background: honeydew;
+  }
 </style>

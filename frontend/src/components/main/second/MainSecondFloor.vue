@@ -1,5 +1,7 @@
 <template>
-  <h2>second floor</h2>
+  <div id="main-second-floor">
+
+  </div>
 </template>
 
 <script>
@@ -9,5 +11,8 @@ export default {
 </script>
 
 <style scoped>
-
+  #main-second-floor {
+    background: ghostwhite;
+    height: 700px;
+  }
 </style>
